@@ -1,44 +1,15 @@
-import os, random, time
+import tkinter as tk
+import random_rename_lib
+renamer = random_rename_lib.Random_rename()
+ 
+window=tk.Tk()
+btn=tk.Button(window, text="   RENAME   ", fg='blue', command=renamer.rename_combined) # button
+btn.place(x=100, y=100) # button position in the window
 
-class Random_rename():
-    def __init__(self):
-        pass
+lbl=tk.Label(window, text="Renaming random jpg files", fg='black', font=("Helvetica", 12))
+lbl.place(x=60, y=50)
 
-    def jpg_list_and_num(self):
-        '''I define the current jpg list (self.jpg_list) and the number of jpg files (self.num_jpg_list)'''
-        # defining len of the jpg list
-        self.jpg_list = []
-        for i in os.listdir():
-            if ".jpg" in i or ".JPG" in i:
-                self.jpg_list.append(i)
-        # defining len of the jpg list
-        self.num_jpg_list = len(self.jpg_list)
+window.title('Jpg Random Renamer')
+window.geometry("300x200+1500+100") # size and position
+window.mainloop()
 
-    def shuffle(self):
-        '''create a list with only random numbers according the number of files'''
-        self.random_nums = [i for i in range(self.num_jpg_list)]
-        random.shuffle(self.random_nums)
-
-    def rename(self):
-        '''rename the jpg files in the directory'''
-        self.jpg_list_and_num()
-        self.shuffle()
-        # actual renaming files loop 
-        for i in range(self.num_jpg_list):
-            file_name = self.jpg_list[i]
-            new_file_name = f"{self.random_nums[i]}.jpg"
-            os.rename(file_name, str(new_file_name))
-    
-    def rename_a(self):
-        '''adding an "a" in front of the file name'''
-        self.jpg_list_and_num() # redefine: "self.jpg_list", "self.num_jpg_list"      
-        for i in self.jpg_list:
-            file_name = i
-            new_file_name = f"a{i}"
-            os.rename(file_name, str(new_file_name))
-
-
-
-obj_rename = Random_rename()
-obj_rename.rename_a()
-obj_rename.rename()
