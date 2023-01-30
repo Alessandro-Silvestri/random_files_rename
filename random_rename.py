@@ -11,7 +11,6 @@ class Random_rename():
         for i in os.listdir():
             if ".jpg" in i or ".JPG" in i:
                 self.jpg_list.append(i)
-
         # defining len of the jpg list
         self.num_jpg_list = len(self.jpg_list)
 
@@ -24,40 +23,22 @@ class Random_rename():
         '''rename the jpg files in the directory'''
         self.jpg_list_and_num()
         self.shuffle()
-
         # actual renaming files loop 
         for i in range(self.num_jpg_list):
             file_name = self.jpg_list[i]
             new_file_name = f"{self.random_nums[i]}.jpg"
-            print(file_name, new_file_name)
             os.rename(file_name, str(new_file_name))
- 
-    def user_interface(self):
-        self.rename()
-        usr = input('Do you want to shuffle the files again?: (y/n) > ')
-
-################################ UNTIL HERE   ################################
-        if usr == 'y':
-            self.jpg_list.clear()
-            self.jpg_list_and_num() # redefine: "self.jpg_list", "self.num_jpg_list"
-            
-            for i in range(self.num_jpg_list):
-                file_name = self.jpg_list[i]
-                new_file_name = f"a{i}.jpg"
-                print(file_name, new_file_name)
-                os.rename(file_name, str(new_file_name))
-                # # time.sleep(1)
-                # self.rename()
-############################################################################
-
-        else:
-            print('Bye!')
-            quit()
     
+    def rename_a(self):
+        '''adding an "a" in front of the file name'''
+        self.jpg_list_and_num() # redefine: "self.jpg_list", "self.num_jpg_list"      
+        for i in self.jpg_list:
+            file_name = i
+            new_file_name = f"a{i}"
+            os.rename(file_name, str(new_file_name))
 
-ren_obj = Random_rename()
-ren_obj.user_interface()
-ren_obj.user_interface()
-ren_obj.user_interface()
 
 
+obj_rename = Random_rename()
+obj_rename.rename_a()
+obj_rename.rename()
