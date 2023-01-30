@@ -1,7 +1,11 @@
 
 # RANDOM JPG RENAMER
 This program renames randomly the jpg files in a folder.
-It is connected with_random_rename_lib.py
+
+You can put these scripts in the folder among the jpg files and run random_rename.py
+
+libraries used: os and tkinter
+
 Made by Alessandro Silvestri - 2023 <alessandro.silvestri.work@gmail.com>
 
 ![screen](https://user-images.githubusercontent.com/103107872/215431256-729f5110-f77a-4511-b59f-e713676542b8.png)
