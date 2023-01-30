@@ -1,6 +1,13 @@
+'''
+RANDOM JPG RENAMER
+This program renames randomly the jpg files in a folder.
+It is connected with_random_rename_lib.py
+Made by Alessandro Silvestri - 2023 <alessandro.silvestri.work@gmail.com>
+'''
+
 import tkinter as tk
 import random_rename_lib
-renamer = random_rename_lib.Random_rename()
+renamer = random_rename_lib.Random_rename() # creating the object from the library
  
 window=tk.Tk()
 btn=tk.Button(window, text="   RENAME   ", fg='blue', command=renamer.rename_combined) # button

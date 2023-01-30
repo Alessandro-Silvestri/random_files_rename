@@ -1,3 +1,9 @@
+'''
+RANDOM JPG RENAMER CLASS
+It is connected with_random_rename.py
+Made by Alessandro Silvestri - 2023 <alessandro.silvestri.work@gmail.com>
+'''
+
 import os, random
 
 class Random_rename():
@@ -37,3 +43,4 @@ class Random_rename():
     def rename_combined(self):
         self.rename_a()
         self.rename()
+
