@@ -40,7 +40,7 @@ class Random_rename():
             new_file_name = f"a{i}"
             os.rename(file_name, str(new_file_name))
     
-    def last_item_chatgpt(self):
+    def last_item(self):
         return sorted(os.listdir(), key=lambda x: os.path.getmtime(x), reverse=True)[0]
 
     def rename_combined(self):
