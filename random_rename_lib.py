@@ -40,7 +40,21 @@ class Random_rename():
             new_file_name = f"a{i}"
             os.rename(file_name, str(new_file_name))
     
+    def last_item(self):
+        dict_list_items = {}
+        # I create the doctionary (<time> <file/dir>)
+        for i in os.listdir():
+            time_file = os.path.getmtime(i)
+            dict_list_items.update({time_file: i})
+        # sort the dictionary by the time
+        dict_list_items = dict(sorted(dict_list_items.items(), reverse=True))
+        # return the last item
+        return list(dict_list_items.values())[0]
+    
     def rename_combined(self):
         self.rename_a()
         self.rename()
 
+# trying the new feature: last_item
+prova = Random_rename()
+print(prova.last_item())
