@@ -40,14 +40,6 @@ class Random_rename():
             new_file_name = f"a{i}"
             os.rename(file_name, str(new_file_name))
     
-    def last_item(self):
-        dict_list_items = {}
-        for i in os.listdir():
-            time_file = os.path.getmtime(i)
-            dict_list_items.update({time_file: i})
-        dict_list_items = dict(sorted(dict_list_items.items(), reverse=True))
-        return list(dict_list_items.values())[0]
-    
     def last_item_chatgpt(self):
         return sorted(os.listdir(), key=lambda x: os.path.getmtime(x), reverse=True)[0]
 
