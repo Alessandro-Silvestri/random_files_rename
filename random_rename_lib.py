@@ -47,6 +47,18 @@ class Random_rename():
         self.rename_a()
         self.rename()
 
-# trying the new feature: last_item
+
+####### Trying the navigation, all work ##########
+os.chdir('prova\\high') # change directory
+print(os.getcwd())
+
+os.chdir('..\\')
+print(os.getcwd())
+
+os.chdir('low')
+print(os.getcwd())
+##################################################
+
 prova = Random_rename()
-print(prova.last_item_chatgpt())
+# prova.rename_combined()
+
