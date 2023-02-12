@@ -14,15 +14,4 @@ Made by Alessandro Silvestri - 2023 <alessandro.silvestri.work@gmail.com>
 UDATE:
 Now random_rename_lib.py works on its own also:
 (inside the folders 'high' and 'low' there must be only jpg files)
-
-random_rename_lib.py
-├───Folder1
-│   ├───high
-│   └───low
-├───Folder1
-│   ├───high
-│   └───low
-├───Folder1
-│   ├───high
-│   └───low
-├───Folder1
+![folder_tree](https://user-images.githubusercontent.com/103107872/218330497-531b71dd-7fc6-49bd-8a84-3b72c19fd484.png)
