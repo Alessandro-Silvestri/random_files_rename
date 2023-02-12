@@ -48,29 +48,31 @@ class Random_rename():
         self.rename_a()
         self.rename()
 
-reanamer = Random_rename()
 
-'''
-####### renaming according the last directory ##########
-os.chdir('prova\\high') # change directory
-reanamer.rename_combined()
+renamer = Random_rename()
 
-os.chdir('..\\')
-
-os.chdir('low')
-reanamer.rename_combined()
-##################################################
-'''
-
-####### renaming according the last directory ##########
-choose_path = filedialog.askdirectory()
-os.chdir(choose_path)
-
-os.chdir('high') # change directory
-reanamer.rename_combined()
-
-os.chdir('..\\')
-
-os.chdir('low')
-reanamer.rename_combined()
-##################################################
+# User terminal interface
+while True:
+    print('''
+    Do you want shuffle the last folder? (Y/N)
+    (Q) quit
+    ''')
+    choice = input('-> ').lower()
+    if choice == 'y':
+        os.chdir(f'{renamer.last_item()}\\high') # change directory
+        renamer.rename_combined()
+        os.chdir('..\\')
+        os.chdir('low')
+        renamer.rename_combined()
+    elif choice == 'n':
+        choose_path = filedialog.askdirectory()
+        os.chdir(choose_path)
+        os.chdir('high') # change directory
+        renamer.rename_combined()
+        os.chdir('..\\')
+        os.chdir('low')
+        renamer.rename_combined()
+    elif choice == 'q':
+        quit()
+    else:
+        print('Wrong choice...')
