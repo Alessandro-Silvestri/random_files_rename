@@ -54,16 +54,25 @@ renamer = Random_rename()
 # User terminal interface
 while True:
     print('''
-    Do you want shuffle the last folder? (Y/N)
-    (Q) quit
+    Do you want shuffle the last folder?
+    (Y/N) (Q) quit
     ''')
     choice = input('-> ').lower()
     if choice == 'y':
+
+
+
         os.chdir(f'{renamer.last_item()}\\high') # change directory
         renamer.rename_combined()
         os.chdir('..\\')
         os.chdir('low')
         renamer.rename_combined()
+        os.chdir('..\\')
+        os.chdir('..\\')
+
+
+
+
     elif choice == 'n':
         choose_path = filedialog.askdirectory()
         os.chdir(choose_path)
@@ -72,6 +81,8 @@ while True:
         os.chdir('..\\')
         os.chdir('low')
         renamer.rename_combined()
+        os.chdir('..\\')
+        os.chdir('..\\')
     elif choice == 'q':
         quit()
     else:
