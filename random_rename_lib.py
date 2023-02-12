@@ -1,6 +1,20 @@
 '''
 RANDOM JPG RENAMER CLASS
-It is connected with_random_rename.py
+It is connected with_random_rename.py and it works on its own through a terminal user interface.
+(inside the folders 'high' and 'low' there must be only jpg files)
+structure:
+    random_rename_lib.py 
+    ├───folder1
+    │   ├───high
+    │   └───low
+    ├───folder2
+    │   ├───high
+    │   └───low
+    ├───folder3
+    │   ├───high
+    ...
+    ...
+
 Made by Alessandro Silvestri - 2023 <alessandro.silvestri.work@gmail.com>
 '''
 
@@ -51,7 +65,7 @@ class Random_rename():
 
 renamer = Random_rename()
 
-# User terminal interface
+####### User terminal interface ########################################
 while True:
     print('''
     Do you want shuffle the last folder?
@@ -59,9 +73,7 @@ while True:
     ''')
     choice = input('-> ').lower()
     if choice == 'y':
-
-
-
+        # rename the last folder created
         os.chdir(f'{renamer.last_item()}\\high') # change directory
         renamer.rename_combined()
         os.chdir('..\\')
@@ -69,11 +81,8 @@ while True:
         renamer.rename_combined()
         os.chdir('..\\')
         os.chdir('..\\')
-
-
-
-
     elif choice == 'n':
+        # choose the folder you want rename
         choose_path = filedialog.askdirectory()
         os.chdir(choose_path)
         os.chdir('high') # change directory
