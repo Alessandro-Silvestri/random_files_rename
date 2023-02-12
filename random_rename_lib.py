@@ -5,6 +5,7 @@ Made by Alessandro Silvestri - 2023 <alessandro.silvestri.work@gmail.com>
 '''
 
 import os, random
+from tkinter import filedialog
 
 class Random_rename():
     def jpg_list_and_num(self):
@@ -47,18 +48,29 @@ class Random_rename():
         self.rename_a()
         self.rename()
 
+reanamer = Random_rename()
 
-####### Trying the navigation, all work ##########
+'''
+####### renaming according the last directory ##########
 os.chdir('prova\\high') # change directory
-print(os.getcwd())
+reanamer.rename_combined()
 
 os.chdir('..\\')
-print(os.getcwd())
 
 os.chdir('low')
-print(os.getcwd())
+reanamer.rename_combined()
 ##################################################
+'''
 
-prova = Random_rename()
-# prova.rename_combined()
+####### renaming according the last directory ##########
+choose_path = filedialog.askdirectory()
+os.chdir(choose_path)
 
+os.chdir('high') # change directory
+reanamer.rename_combined()
+
+os.chdir('..\\')
+
+os.chdir('low')
+reanamer.rename_combined()
+##################################################
